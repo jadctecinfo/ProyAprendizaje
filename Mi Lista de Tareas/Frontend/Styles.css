@@ -1,0 +1,216 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f0f0f0;
+}
+
+.dashboard {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 20px 0;
+    padding: 15px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.dashboard-item {
+    background-color: #28a745;
+    color: white;
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    text-align: center;
+    width: 150px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dashboard-item.programadas {
+    background-color: #dc3545; /* rojo bootstrap */
+    color: white;
+}
+
+.dashboard-item.encurso {
+    background-color: #e47813; /* naranja bootstrap */
+    color: white;
+}
+.dashboard-item h3 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.dashboard-item p {
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin: 0;
+}
+
+.dashboard-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+@media (max-width: 768px) {
+    .dashboard {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+}
+
+header {
+    background-color: #333;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+h1 {
+    text-align: center;
+    color: #e6e4df;
+    font-size: 2rem;
+}
+
+form {
+    text-align: center;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+input[type="text"] {
+    padding: 10px;
+    width: 60%;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="date"] {
+    padding: 10px;
+    width: 20%;
+    font-size: 1rem;
+    border: 1px solid #886a6a;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px 15px;
+    font-size: 1rem;
+    border: none;
+    background-color: #28a745;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+.contenedor-tareas {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.seccion {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 30%;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box;
+}
+
+.seccion:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+.seccion h2 {
+    text-align: center;
+    color: #444;
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #28a745;
+    padding-bottom: 8px;
+}
+
+.seccion ul {
+    list-style: none;
+    padding: 0;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.seccion ul li {
+    margin: 10px 0;
+    padding: 12px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#listaTareasProgramadas li {
+    background-color: #f8d7da; /* rojo claro */
+    color: #721c24; /* texto rojo oscuro */
+}
+
+#listaTareasenCurso li {
+    background-color: #fff3cd; /* naranja claro */
+    color: #856404; /* texto naranja oscuro */
+}
+
+#listaTareasEjecutadas li {
+    background-color: #d9f0d9; /* verde claro */
+    color: #155724; /* texto verde oscuro */
+}
+
+.seccion ul li:hover {
+    background-color: #c8e6c9;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transform: translateY(-3px);
+    transition: all 0.3s ease;
+}
+
+.seccion ul li span {
+    flex-grow: 1;
+}
+
+.seccion ul li button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    font-size: 1rem;
+    border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+    .contenedor-tareas {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .seccion {
+        width: 100%;
+    }
+    input[type="text"], input[type="date"] {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    form {
+        flex-direction: column;
+        align-items: center;
+    }
+}
