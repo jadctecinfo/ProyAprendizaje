@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicios JavaScript</title>
+</head>
+<body>
+    <h1>Ejercicio 1: Variables y tipos de datos</h1>
+    <p>Los resultados se mostrarán aquí:</p>
+    <div id="resultados"></div>
+
+    <script>
+        let nombre = 'Tu Nombre';
+        let edad = 25;
+        let esEstudiante = true;
+
+        // Mostrar en consola
+        console.log(nombre);
+        console.log(edad);
+        console.log(esEstudiante);
+
+        // Mostrar en la página web
+        const resultadosDiv = document.getElementById('resultados');
+        resultadosDiv.innerHTML = 
+            '<p>Nombre: ' + nombre + '</p>' +
+            '<p>Edad: ' + edad + '</p>' +
+            '<p>Es estudiante: ' + esEstudiante + '</p>';
+    </script>
+
+    <h1>Ejercicio 2: operadores y expresiones</h1>
+    
+    <script>
+        let num1 = 10;
+        let num2 = 5;
+
+        resultadosDiv.innerHTML += '<p>Suma: ' + (num1 + num2) + '</p>';
+        resultadosDiv.innerHTML += '<p>Resta: ' + (num1 - num2) + '</p>';
+        resultadosDiv.innerHTML += '<p>Multiplicación: ' + (num1 * num2) + '</p>';
+        resultadosDiv.innerHTML += '<p>División: ' + (num1 / num2) + '</p>';
+        resultadosDiv.innerHTML += '<p>Módulo: ' + (num1 % num2) + '</p>';
+        resultadosDiv.innerHTML += '<p>num1 > num2: ' + (num1 > num2) + '</p>';
+        resultadosDiv.innerHTML += '<p>num1 === num2: ' + (num1 === num2) + '</p>';
+    </script>
+
+    <h1>Ejercicio 3: Estructuras de control</h1>
+    <script>
+        
+        let numero = 7;
+        let mensaje;
+        if (numero >10) {
+            mensaje = 'El número ' + numero + ' es mayor.';
+        } else {
+            mensaje = 'El número ' + numero + ' es menor.';
+        }
+
+    </script>
+
+</body>
+</html>

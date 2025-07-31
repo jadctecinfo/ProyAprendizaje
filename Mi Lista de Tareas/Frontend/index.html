@@ -1,67 +1,98 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="Styles.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mi Lista de Tareas</title>
+    <link rel="stylesheet" href="Styles.css" />
     <script src="script.js" defer></script>
 </head>
 <body>
-
     <header>
-        <h1>LISTA DE TAREAS JAIME ANDRES DURAN CARRANZA</h1>
+        <h1>MY TASK CONTROLLER</h1>
+        
+        <div id="auth-header" style="float: right; font-size: 0.8em; display: flex; gap: 20px;">
+        <section class="auth-section" id="login-section">
+      <h2 style="text-align:center; margin-bottom: 10px;">Ingresa Aquí</h2>
+      <div id="login-toggle" style="cursor:pointer; display:flex; align-items:center; gap:5px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#007BFF" viewBox="0 0 16 16">
+          <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3z"/>
+          <path fill-rule="evenodd" d="M8 8a3 3 0 100-6 3 3 0 000 6z"/>
+        </svg>
+        <span>Login</span>
+      </div>
+      <form id="login-form" style="display:none; flex-direction: column; gap: 10px; margin-top: 10px;">
+        <h2><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#007BFF" viewBox="0 0 16 16"><path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3z"/><path fill-rule="evenodd" d="M8 8a3 3 0 100-6 3 3 0 000 6z"/></svg> Login</h2>
+        <label>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#555" viewBox="0 0 16 16"><path d="M10 5a2 2 0 11-4 0 2 2 0 014 0z"/><path fill-rule="evenodd" d="M0 8a8 8 0 1116 0A8 8 0 010 8zm8-7a7 7 0 100 14A7 7 0 008 1z"/></svg>
+          <input type="text" id="login-username" placeholder="Usuario" required />
+        </label>
+        <label>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#555" viewBox="0 0 16 16"><path d="M8 1a4 4 0 00-4 4v2H3a1 1 0 000 2h10a1 1 0 000-2h-1V5a4 4 0 00-4-4z"/></svg>
+          <input type="password" id="login-password" placeholder="Contraseña" required />
+        </label>
+        <button type="submit">Entrar</button>
+      </form>
+    </section>
+        </div>
+    
     </header>
 
-    <div class="container">
-        
-     <h2>Empresa: </h2>
-    <h3>Fecha de creación: 2025-07-11</h3>
-    <h3>Fecha de actualización: 2025-07-11</h3>
-    <h3>Autor: Jaime Andres Duran Carranza</h3>
-    <h3>Descripción: Esta es una lista de tareas que se pueden agregar, eliminar y marcar como completadas.</h3>
-    <h3>Versión: 1.0</h3>
+    <div class="container" style="display:flex; justify-content:center; align-items:center; height:calc(100vh - 60px);">
+        <section class="auth-section" id="register-section">
+            <h2><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#007BFF" viewBox="0 0 16 16"><path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3z"/><path fill-rule="evenodd" d="M8 8a3 3 0 100-6 3 3 0 000 6z"/></svg> Registro</h2>
+            <form id="register-form">
+                <label>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#555" viewBox="0 0 16 16"><path d="M10 5a2 2 0 11-4 0 2 2 0 014 0z"/><path fill-rule="evenodd" d="M0 8a8 8 0 1116 0A8 8 0 010 8zm8-7a7 7 0 100 14A7 7 0 008 1z"/></svg>
+                    <input type="text" id="register-username" placeholder="Usuario" required />
+                </label>
+                <label>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#555" viewBox="0 0 16 16"><path d="M8 1a4 4 0 00-4 4v2H3a1 1 0 000 2h10a1 1 0 000-2h-1V5a4 4 0 00-4-4z"/></svg>
+                    <input type="password" id="register-password" placeholder="Contraseña" required />
+                </label>
+                <button type="submit">Registrar</button>
+            </form>
+        </section>
     </div>
 
-    <form id="FormularioTarea" onsubmit="agregarTarea(event)">
-        <input type="text" id="nuevaTarea" placeholder="Nueva tarea" required>
-        <input type="date" id="fechaTarea" placeholder="Fecha de la tarea" required>
-        <button type="submit">Agregar Tarea</button>
-    </form>
+    <section id="task-section" style="display:none;">
+        <form id="FormularioTarea" onsubmit="agregarTarea(event)">
+            <input type="text" id="nuevaTarea" placeholder="Nueva tarea" required />
+            <input type="date" id="fechaTarea" placeholder="Fecha de la tarea" required />
+            <button type="submit">Agregar Tarea</button>
+        </form>
 
-    <div class="dashboard">
-        <div class="dashboard-item programadas">
-            <h3>Tareas Programadas</h3>
-            <p id="contadorProgramadas">0</p>
-        </div>
-        <div class="dashboard-item encurso">
-            <h3>Tareas en Curso</h3>
-            <p id="contadorEnCurso">0</p>
-        </div>
-        <div class="dashboard-item">
-            <h3>Tareas Ejecutadas</h3>
-            <p id="contadorEjecutadas">0</p>
-        </div>
-    </div>
-
-    <div class="contenedor-tareas">
-
-        <div class="seccion" id="Tarea Programada">
-            <h2>Tareas Programadas</h2>
-            <ul id="listaTareasProgramadas"></ul>
+        <div class="dashboard">
+            <div class="dashboard-item programadas">
+                <h3>Tareas Programadas</h3>
+                <p id="contadorProgramadas">0</p>
+            </div>
+            <div class="dashboard-item encurso">
+                <h3>Tareas en Curso</h3>
+                <p id="contadorEnCurso">0</p>
+            </div>
+            <div class="dashboard-item">
+                <h3>Tareas Ejecutadas</h3>
+                <p id="contadorEjecutadas">0</p>
+            </div>
         </div>
 
-        <div class="seccion" id="Tareas en curso">
-            <h2>Tareas en curso</h2>
-            <ul id="listaTareasenCurso"></ul>
+        <div class="contenedor-tareas">
+            <div class="seccion" id="Tarea Programada">
+                <h2>Tareas Programadas</h2>
+                <ul id="listaTareasProgramadas"></ul>
+            </div>
+
+            <div class="seccion" id="Tareas en curso">
+                <h2>Tareas en curso</h2>
+                <ul id="listaTareasenCurso"></ul>
+            </div>
+
+            <div class="seccion" id="Tareas ejecutadas">
+                <h2>Tareas Ejecutadas</h2>
+                <ul id="listaTareasEjecutadas"></ul>
+            </div>
         </div>
-
-        <div class="seccion" id="Tareas ejecutadas">
-            <h2>Tareas Ejecutadas</h2>
-            <ul id="listaTareasEjecutadas"></ul>
-        </div>   
-                 
-    </div> 
-
+    </section>
 </body>
 </html>
